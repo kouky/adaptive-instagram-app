@@ -10,6 +10,7 @@
 #import <Masonry/Masonry.h>
 
 @interface MKHeaderView ()
+@property BOOL didSetConstraints;
 @property UIImageView *imageView;
 @end
 
@@ -23,13 +24,23 @@
         self.backgroundColor = [UIColor colorWithRed:0.157 green:0.294 blue:0.427 alpha:1];
         self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagram"]];
         [self addSubview:self.imageView];
+    }
+    
+    return self;
+}
+
+- (void)updateConstraints
+{
+    if (!self.didSetConstraints) {
+        
+        self.didSetConstraints = YES;
         
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self);
         }];
     }
-    
-    return self;
+
+    [super updateConstraints];
 }
 
 @end
