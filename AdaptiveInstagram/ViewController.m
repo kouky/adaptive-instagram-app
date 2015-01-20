@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "MKHeaderView.h"
+#import <Masonry/Masonry.h>
 
 @interface ViewController ()
-
+@property MKHeaderView *headerView;
 @end
 
 @implementation ViewController
@@ -18,6 +20,13 @@
 {
     [super viewDidLoad];
 
+    self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.headerView];
+
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.top.equalTo(self.view);
+        make.height.equalTo(@44);
+    }];
 }
 
 @end
