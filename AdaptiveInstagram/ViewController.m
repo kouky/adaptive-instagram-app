@@ -37,7 +37,7 @@
         
         [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.and.top.equalTo(self.view);
-            make.height.equalTo(@44);
+            make.height.equalTo(@60);
         }];
     }
     
