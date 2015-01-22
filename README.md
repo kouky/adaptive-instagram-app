@@ -1,6 +1,6 @@
 # Adapative Instagram iOS App
 
-A demo application illustrating how to use autoLayout and size classes to adapt an instgaram-esque interface to different sized devices.
+A demonstration application illustrating key iOS8 technologies such as auto layout, trait collections, and size classes. Aimed to showcase a modern adaptive Instagram user interface for different sized iOS devices. 
 
 ## Contact
 
