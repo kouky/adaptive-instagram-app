@@ -44,4 +44,11 @@
     [super updateViewConstraints];
 }
 
+#pragma mark UIContentContainer protocol methods
+
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    NSLog(@"change");
+}
+
 @end
