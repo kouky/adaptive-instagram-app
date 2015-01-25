@@ -13,6 +13,7 @@
 @interface ViewController ()
 @property BOOL didSetConstraints;
 @property MKHeaderView *headerView;
+@property NSArray *anyWidthAnyHeightConstraints;
 @end
 
 @implementation ViewController
@@ -48,8 +49,13 @@
         self.didSetConstraints = YES;
         
         [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.and.top.equalTo(self.view);
-            make.height.equalTo(@60);
+            
+            NSMutableArray *constraints = [[NSMutableArray alloc] init];
+            
+            [constraints addObject:make.left.right.and.top.equalTo(self.view)];
+            [constraints addObject:make.height.equalTo(@60)];
+            
+            self.anyWidthAnyHeightConstraints = [constraints copy];
         }];
     }
     
