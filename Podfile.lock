@@ -1,10 +1,13 @@
 PODS:
   - Masonry (0.6.0)
+  - TransitionKit (2.1.1)
 
 DEPENDENCIES:
   - Masonry
+  - TransitionKit
 
 SPEC CHECKSUMS:
   Masonry: 0bc111d6902e3a55ff8423bcbdf7155261806547
+  TransitionKit: 9ce324caba25cb0a4c9f3334302d89685595455c
 
 COCOAPODS: 0.35.0
