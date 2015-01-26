@@ -56,8 +56,7 @@
         self.didSetConstraints = YES;
         
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@40);
-            make.width.equalTo(self.imageView.mas_height);
+            make.size.mas_equalTo(CGSizeMake(40.0, 40.0));
             make.centerY.equalTo(self);
             make.left.equalTo(self).with.offset(5);
         }];
