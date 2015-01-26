@@ -46,13 +46,14 @@
         self.didSetConstraints = YES;
         
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.and.top.equalTo(self).with.insets(UIEdgeInsetsMake(5, 5, 0, 0));
+            make.size.mas_equalTo(CGSizeMake(15, 15));
+            make.left.and.top.equalTo(self).with.offset(5);
         }];
         
         [self.likesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).with.offset(3);
             make.left.equalTo(self.imageView.mas_right).with.offset(5);
-            make.right.equalTo(self);
+            make.right.equalTo(self).with.offset(-5);
         }];
     }
     
