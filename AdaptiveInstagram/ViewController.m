@@ -51,16 +51,7 @@
     if (!self.didSetConstraints) {
         
         self.didSetConstraints = YES;
-        
-        [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            NSMutableArray *constraints = [[NSMutableArray alloc] init];
-            
-            [constraints addObject:make.left.right.and.top.equalTo(self.view)];
-            [constraints addObject:make.height.equalTo(@60)];
-            
-            self.anyWidthAnyHeightConstraints = [constraints copy];
-        }];
+        [self addAnyWidthAnyHeightConstraints];
     }
     
     [super updateViewConstraints];
@@ -72,5 +63,20 @@
 {
     NSLog(@"change");
 }
+
+#pragma mark Size class constraimts helpers
+
+- (void)addAnyWidthAnyHeightConstraints
+{
+    NSMutableArray *constraints = [[NSMutableArray alloc] init];
+    
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.left.right.and.top.equalTo(self.view)];
+        [constraints addObject:make.height.equalTo(@60)];
+    }];
+    
+    self.anyWidthAnyHeightConstraints = [constraints copy];
+}
+
 
 @end
