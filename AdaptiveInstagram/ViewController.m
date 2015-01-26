@@ -105,24 +105,34 @@
         [constraints addObject:make.left.right.and.top.equalTo(self.view)];
         [constraints addObject:make.height.equalTo(@60)];
     }];
+
+    [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.height.equalTo(@60)];
+        [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
+    }];
+
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
-        [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
     }];
     
     self.anyWidthAnyHeightConstraints = [constraints copy];
 }
 
+// iPhone Portrait
 - (void)addCompactWidthRegularHeightConstraints
 {
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
-    
-    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.width.equalTo(self.view.mas_width)];
 
+    [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.left.and.right.equalTo(self.view)];
     }];
     
+    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.top.equalTo(self.authorView.mas_bottom)];
+        [constraints addObject:make.left.and.right.equalTo(self.view)];
+    }];
+
     self.compactWidthRegularHeightConstraints = [constraints copy];
 }
 
@@ -133,13 +143,19 @@
     }
 }
 
+// iPhone Landscape
 - (void)addAnyWidthCompactHeightConstraints
 {
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
     
+    [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.left.equalTo(self.pictureView.mas_right)];
+        [constraints addObject:make.right.equalTo(self.view)];
+    }];
+    
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.bottom.equalTo(self.view.mas_bottom)];
-        
+        [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
+        [constraints addObject:make.left.and.bottom.equalTo(self.view)];
     }];
     
     self.anyWidthCompactHeightConstraints = [constraints copy];
