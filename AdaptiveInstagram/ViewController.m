@@ -9,11 +9,12 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 #import "MKHeaderView.h"
-
+#import "MKAuthorView.h"
 
 @interface ViewController ()
 @property BOOL didSetConstraints;
 @property MKHeaderView *headerView;
+@property MKAuthorView *authorView;
 @property UIImageView *pictureView;
 
 // Generic - all iphones and ipads in any orientation
@@ -36,6 +37,8 @@
     if (self) {
         self.didSetConstraints = NO;
         self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
+        self.authorView = [[MKAuthorView alloc] initWithFrame:CGRectZero];
+        [self.authorView setBackgroundColor:[UIColor redColor]];
         self.pictureView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rottnest"]];
     }
     
@@ -46,6 +49,7 @@
 {
     [super viewDidLoad];
     [self.view addSubview:self.headerView];
+    [self.view addSubview:self.authorView];
     [self.view addSubview:self.pictureView];
     [self.view setNeedsUpdateConstraints];
 }
