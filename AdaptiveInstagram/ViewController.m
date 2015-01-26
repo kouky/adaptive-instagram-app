@@ -73,7 +73,25 @@
 
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    NSLog(@"change");
+    UIUserInterfaceSizeClass h = newCollection.horizontalSizeClass;
+    UIUserInterfaceSizeClass v = newCollection.verticalSizeClass;
+    
+    // iPhone Landscape
+    if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact && newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+        [self removeCompactWidthRegularHeightConstraints];
+        [self addAnyWidthCompactHeightConstraints];
+    }
+    
+    // iPhone Landscape
+    else if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular && newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+        [self removeCompactWidthRegularHeightConstraints];
+        [self addAnyWidthCompactHeightConstraints];
+    }
+    // iPhone Portrait
+    else if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact && newCollection.verticalSizeClass == UIUserInterfaceSizeClassRegular) {
+        [self removeAnyWidthCompactHeightConstraints];
+        [self addCompactWidthRegularHeightConstraints];
+    }
 }
 
 #pragma mark Size class constraimts helpers
@@ -107,6 +125,13 @@
     self.compactWidthRegularHeightConstraints = [constraints copy];
 }
 
+- (void)removeCompactWidthRegularHeightConstraints
+{
+    for (MASConstraint *constraint in self.compactWidthRegularHeightConstraints) {
+        [constraint uninstall];
+    }
+}
+
 - (void)addAnyWidthCompactHeightConstraints
 {
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
@@ -117,6 +142,13 @@
     }];
     
     self.anyWidthCompactHeightConstraints = [constraints copy];
+}
+
+- (void)removeAnyWidthCompactHeightConstraints
+{
+    for (MASConstraint *constraint in self.anyWidthCompactHeightConstraints) {
+        [constraint uninstall];
+    }
 }
 
 @end
