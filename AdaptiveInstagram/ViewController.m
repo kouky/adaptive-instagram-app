@@ -42,7 +42,6 @@
         self.authorView = [[MKAuthorView alloc] initWithFrame:CGRectZero];
         self.pictureView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rottnest"]];
         self.likesView = [[MKLikesView alloc] initWithFrame:CGRectZero];
-        [self.likesView setBackgroundColor:[UIColor redColor]];
     }
     
     return self;
@@ -84,7 +83,6 @@
         [self removeCompactWidthRegularHeightConstraints];
         [self addAnyWidthCompactHeightConstraints];
     }
-    
     // iPhone Landscape
     else if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular && newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
         [self removeCompactWidthRegularHeightConstraints];
@@ -132,6 +130,12 @@
         [constraints addObject:make.left.and.right.equalTo(self.view)];
         [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
     }];
+    
+    [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.top.equalTo(self.pictureView.mas_bottom).with.offset(5)];
+        [constraints addObject:make.left.and.right.equalTo(self.view)];
+        [constraints addObject:make.height.equalTo(@60)];
+    }];
 
     self.compactWidthRegularHeightConstraints = [constraints copy];
 }
@@ -157,6 +161,13 @@
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
         [constraints addObject:make.left.and.bottom.equalTo(self.view)];
         [constraints addObject:make.width.lessThanOrEqualTo(self.pictureView.mas_height)];
+    }];
+    
+    [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.top.equalTo(self.authorView.mas_bottom)];
+        [constraints addObject:make.left.equalTo(self.pictureView.mas_right)];
+        [constraints addObject:make.right.equalTo(self.view)];
+        [constraints addObject:make.height.equalTo(@60)];
     }];
     
     self.anyWidthCompactHeightConstraints = [constraints copy];
