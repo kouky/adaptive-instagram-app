@@ -9,13 +9,12 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 #import "MKHeaderView.h"
-#import "MKPictureView.h"
 
 
 @interface ViewController ()
 @property BOOL didSetConstraints;
 @property MKHeaderView *headerView;
-@property MKPictureView *pictureView;
+@property UIImageView *pictureView;
 
 // Generic - all iphones and ipads in any orientation
 @property NSArray *anyWidthAnyHeightConstraints;
@@ -37,8 +36,7 @@
     if (self) {
         self.didSetConstraints = NO;
         self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
-        self.pictureView = [[MKPictureView alloc] initWithFrame:CGRectZero];
-        [self.pictureView setBackgroundColor:[UIColor redColor]];
+        self.pictureView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rottnest"]];
     }
     
     return self;
