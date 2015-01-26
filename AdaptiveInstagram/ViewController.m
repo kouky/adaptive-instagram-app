@@ -111,11 +111,6 @@
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
     }];
 
-    
-    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
-    }];
-    
     self.anyWidthAnyHeightConstraints = [constraints copy];
 }
 
@@ -131,6 +126,7 @@
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.authorView.mas_bottom)];
         [constraints addObject:make.left.and.right.equalTo(self.view)];
+        [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
     }];
 
     self.compactWidthRegularHeightConstraints = [constraints copy];
@@ -156,6 +152,7 @@
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
         [constraints addObject:make.left.and.bottom.equalTo(self.view)];
+        [constraints addObject:make.width.lessThanOrEqualTo(self.pictureView.mas_height)];
     }];
     
     self.anyWidthCompactHeightConstraints = [constraints copy];
