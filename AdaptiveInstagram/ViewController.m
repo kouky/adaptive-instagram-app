@@ -75,6 +75,10 @@
         [constraints addObject:make.height.equalTo(@60)];
     }];
     
+    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
+    }];
+    
     self.anyWidthAnyHeightConstraints = [constraints copy];
 }
 
