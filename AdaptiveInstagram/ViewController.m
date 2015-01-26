@@ -23,6 +23,9 @@
 // Any iphone in portrait orientation
 @property NSArray *compactWidthRegularHeightConstraints;
 
+// Any iphone in portrait landscape
+@property NSArray *anyWidthCompactHeightConstraints;
+
 @end
 
 @implementation ViewController
@@ -104,5 +107,16 @@
     self.compactWidthRegularHeightConstraints = [constraints copy];
 }
 
+- (void)addAnyWidthCompactHeightConstraints
+{
+    NSMutableArray *constraints = [[NSMutableArray alloc] init];
+    
+    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.height.equalTo(self.view.mas_height)];
+        
+    }];
+    
+    self.anyWidthCompactHeightConstraints = [constraints copy];
+}
 
 @end
