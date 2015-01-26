@@ -73,9 +73,6 @@
 
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    UIUserInterfaceSizeClass h = newCollection.horizontalSizeClass;
-    UIUserInterfaceSizeClass v = newCollection.verticalSizeClass;
-    
     // iPhone Landscape
     if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact && newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
         [self removeCompactWidthRegularHeightConstraints];
