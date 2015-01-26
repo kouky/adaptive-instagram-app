@@ -16,7 +16,13 @@
 @property BOOL didSetConstraints;
 @property MKHeaderView *headerView;
 @property MKPictureView *pictureView;
+
+// Generic - all iphones and ipads in any orientation
 @property NSArray *anyWidthAnyHeightConstraints;
+
+// Any iphone in portrait orientation
+@property NSArray *compactWidthRegularHeightConstraints;
+
 @end
 
 @implementation ViewController
@@ -29,6 +35,7 @@
         self.didSetConstraints = NO;
         self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
         self.pictureView = [[MKPictureView alloc] initWithFrame:CGRectZero];
+        [self.pictureView setBackgroundColor:[UIColor redColor]];
     }
     
     return self;
@@ -38,6 +45,7 @@
 {
     [super viewDidLoad];
     [self.view addSubview:self.headerView];
+    [self.view addSubview:self.pictureView];
     [self.view setNeedsUpdateConstraints];
 }
 
@@ -52,6 +60,7 @@
         
         self.didSetConstraints = YES;
         [self addAnyWidthAnyHeightConstraints];
+        [self addCompactWidthRegularHeightConstraints];
     }
     
     [super updateViewConstraints];
@@ -77,9 +86,22 @@
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
+        [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
     }];
     
     self.anyWidthAnyHeightConstraints = [constraints copy];
+}
+
+- (void)addCompactWidthRegularHeightConstraints
+{
+    NSMutableArray *constraints = [[NSMutableArray alloc] init];
+    
+    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [constraints addObject:make.width.equalTo(self.view.mas_width)];
+
+    }];
+    
+    self.compactWidthRegularHeightConstraints = [constraints copy];
 }
 
 
