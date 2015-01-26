@@ -87,6 +87,8 @@
         [self removeAnyWidthCompactHeightConstraints];
         [self addCompactWidthRegularHeightConstraints];
     }
+    
+    [self updateViewConstraints];
 }
 
 #pragma mark Size class constraimts helpers
@@ -132,8 +134,7 @@
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.height.equalTo(self.view.mas_height)];
-        
+        [constraints addObject:make.bottom.equalTo(self.view.mas_bottom)];
     }];
     
     self.anyWidthCompactHeightConstraints = [constraints copy];
