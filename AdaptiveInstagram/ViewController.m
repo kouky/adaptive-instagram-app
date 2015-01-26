@@ -135,6 +135,7 @@
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.bottom.equalTo(self.view.mas_bottom)];
+        
     }];
     
     self.anyWidthCompactHeightConstraints = [constraints copy];
