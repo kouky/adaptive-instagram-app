@@ -7,12 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "MKHeaderView.h"
 #import <Masonry/Masonry.h>
+#import "MKHeaderView.h"
+#import "MKPictureView.h"
+
 
 @interface ViewController ()
 @property BOOL didSetConstraints;
 @property MKHeaderView *headerView;
+@property MKPictureView *pictureView;
 @property NSArray *anyWidthAnyHeightConstraints;
 @end
 
@@ -25,6 +28,7 @@
     if (self) {
         self.didSetConstraints = NO;
         self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
+        self.pictureView = [[MKPictureView alloc] initWithFrame:CGRectZero];
     }
     
     return self;
