@@ -53,7 +53,7 @@
         self.didSetConstraints = YES;
         
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.and.bottom.equalTo(self).with.insets(UIEdgeInsetsMake(5.0, 10.0, 5.0, 10.0));
+            make.top.left.and.bottom.equalTo(self).with.insets(UIEdgeInsetsMake(5.0, 5.0, 5.0, 10.0));
             make.width.equalTo(self.imageView.mas_height);
         }];
         
