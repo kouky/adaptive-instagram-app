@@ -10,12 +10,14 @@
 #import <Masonry/Masonry.h>
 #import "MKHeaderView.h"
 #import "MKAuthorView.h"
+#import "MKLikesView.h"
 
 @interface ViewController ()
 @property BOOL didSetConstraints;
 @property MKHeaderView *headerView;
 @property MKAuthorView *authorView;
 @property UIImageView *pictureView;
+@property MKLikesView *likesView;
 
 // Generic - all iphones and ipads in any orientation
 @property NSArray *anyWidthAnyHeightConstraints;
@@ -39,6 +41,8 @@
         self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
         self.authorView = [[MKAuthorView alloc] initWithFrame:CGRectZero];
         self.pictureView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rottnest"]];
+        self.likesView = [[MKLikesView alloc] initWithFrame:CGRectZero];
+        [self.likesView setBackgroundColor:[UIColor redColor]];
     }
     
     return self;
@@ -50,6 +54,7 @@
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.authorView];
     [self.view addSubview:self.pictureView];
+    [self.view addSubview:self.likesView];
     [self.view setNeedsUpdateConstraints];
 }
 
