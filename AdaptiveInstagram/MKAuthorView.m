@@ -27,6 +27,9 @@
         [self setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mike"]];
+        [self.imageView.layer setCornerRadius:20];
+        [self.imageView.layer setMasksToBounds:YES];
+        [self.imageView.layer setBorderWidth:0];
 
         self.nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         [self.nameLabel setText:@"mike"];
@@ -53,8 +56,10 @@
         self.didSetConstraints = YES;
         
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.and.bottom.equalTo(self).with.insets(UIEdgeInsetsMake(5.0, 5.0, 5.0, 10.0));
+            make.height.equalTo(@40);
             make.width.equalTo(self.imageView.mas_height);
+            make.centerY.equalTo(self);
+            make.left.equalTo(self).with.offset(5);
         }];
         
         [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
