@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		279FBEB21A75F92E00EB4297 /* MKAuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 279FBEB11A75F92E00EB4297 /* MKAuthorView.m */; };
 		27A27D561A6D133200D34F52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A27D551A6D133200D34F52 /* main.m */; };
 		27A27D591A6D133200D34F52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A27D581A6D133200D34F52 /* AppDelegate.m */; };
 		27A27D5C1A6D133200D34F52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A27D5B1A6D133200D34F52 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0DE5282E2BA6692845F9A6B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2105B8753B9FABFBB312DA05 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		279FBEB01A75F92E00EB4297 /* MKAuthorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAuthorView.h; sourceTree = "<group>"; };
+		279FBEB11A75F92E00EB4297 /* MKAuthorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAuthorView.m; sourceTree = "<group>"; };
 		27A27D501A6D133200D34F52 /* AdaptiveInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A27D541A6D133200D34F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27A27D551A6D133200D34F52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		279FBEB31A75F93100EB4297 /* Author */ = {
+			isa = PBXGroup;
+			children = (
+				279FBEB01A75F92E00EB4297 /* MKAuthorView.h */,
+				279FBEB11A75F92E00EB4297 /* MKAuthorView.m */,
+			);
+			name = Author;
+			sourceTree = "<group>";
+		};
 		27A27D471A6D133200D34F52 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +105,7 @@
 				27A27D581A6D133200D34F52 /* AppDelegate.m */,
 				27A27D5A1A6D133200D34F52 /* ViewController.h */,
 				27A27D5B1A6D133200D34F52 /* ViewController.m */,
+				279FBEB31A75F93100EB4297 /* Author */,
 				27F7F7A41A6E6A3600DB36AC /* Header */,
 				27A27D601A6D133200D34F52 /* Images.xcassets */,
 				27A27D621A6D133200D34F52 /* LaunchScreen.xib */,
@@ -289,6 +302,7 @@
 			files = (
 				27A27D5C1A6D133200D34F52 /* ViewController.m in Sources */,
 				27F7F7A31A6E6A3100DB36AC /* MKHeaderView.m in Sources */,
+				279FBEB21A75F92E00EB4297 /* MKAuthorView.m in Sources */,
 				27A27D591A6D133200D34F52 /* AppDelegate.m in Sources */,
 				27A27D561A6D133200D34F52 /* main.m in Sources */,
 			);
