@@ -38,7 +38,6 @@
         [self.dateLabel setFont:[UIFont boldSystemFontOfSize:14]];
         [self.dateLabel setTextColor:[UIColor grayColor]];
         
-        
         [self addSubview:self.imageView];
         [self addSubview:self.nameLabel];
         [self addSubview:self.dateLabel];

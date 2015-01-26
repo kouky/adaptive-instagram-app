@@ -38,7 +38,6 @@
         self.didSetConstraints = NO;
         self.headerView = [[MKHeaderView alloc] initWithFrame:CGRectZero];
         self.authorView = [[MKAuthorView alloc] initWithFrame:CGRectZero];
-        [self.authorView setBackgroundColor:[UIColor redColor]];
         self.pictureView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rottnest"]];
     }
     
@@ -107,7 +106,7 @@
     }];
 
     [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.height.equalTo(@60)];
+        [constraints addObject:make.height.equalTo(@50)];
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
     }];
 
