@@ -10,7 +10,10 @@
 
 @interface UITraitCollection (MKAdditions)
 
+// Any iphone in landscape orientation
 - (BOOL)mk_matchesPhoneLandscape;
+
+// Any iphone in portrait orientation
 - (BOOL)mk_matchesPhonePortrait;
 
 @end

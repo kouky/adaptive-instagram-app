@@ -20,14 +20,10 @@
 @property UIImageView *pictureView;
 @property MKLikesView *likesView;
 
-// Generic - all iphones and ipads in any orientation
-@property NSArray *anyWidthAnyHeightConstraints;
-
-// Any iphone in portrait orientation
-@property NSArray *compactWidthRegularHeightConstraints;
-
-// Any iphone in portrait landscape
-@property NSArray *anyWidthCompactHeightConstraints;
+// Constraints
+@property NSArray *genericConstraints;
+@property NSArray *phonePortraitConstraints;
+@property NSArray *phoneLandscapeConstraints;
 
 @end
 
@@ -110,7 +106,7 @@
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
     }];
 
-    self.anyWidthAnyHeightConstraints = [constraints copy];
+    self.genericConstraints = [constraints copy];
 }
 
 // iPhone Portrait
@@ -134,12 +130,12 @@
         [constraints addObject:make.height.equalTo(@60)];
     }];
 
-    self.compactWidthRegularHeightConstraints = [constraints copy];
+    self.phonePortraitConstraints = [constraints copy];
 }
 
 - (void)removeCompactWidthRegularHeightConstraints
 {
-    for (MASConstraint *constraint in self.compactWidthRegularHeightConstraints) {
+    for (MASConstraint *constraint in self.phonePortraitConstraints) {
         [constraint uninstall];
     }
 }
@@ -167,12 +163,12 @@
         [constraints addObject:make.height.equalTo(@60)];
     }];
     
-    self.anyWidthCompactHeightConstraints = [constraints copy];
+    self.phoneLandscapeConstraints = [constraints copy];
 }
 
 - (void)removeAnyWidthCompactHeightConstraints
 {
-    for (MASConstraint *constraint in self.anyWidthCompactHeightConstraints) {
+    for (MASConstraint *constraint in self.phoneLandscapeConstraints) {
         [constraint uninstall];
     }
 }
