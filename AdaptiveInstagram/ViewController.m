@@ -11,6 +11,7 @@
 #import "MKHeaderView.h"
 #import "MKAuthorView.h"
 #import "MKLikesView.h"
+#import "UITraitCollection+MKAdditions.h"
 
 @interface ViewController ()
 @property BOOL didSetConstraints;
@@ -78,18 +79,14 @@
 
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    // iPhone Landscape
-    if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact && newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+    if ([newCollection mk_matchesPhoneLandscape]) {
+        
         [self removeCompactWidthRegularHeightConstraints];
         [self addAnyWidthCompactHeightConstraints];
+        
     }
-    // iPhone Landscape
-    else if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular && newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
-        [self removeCompactWidthRegularHeightConstraints];
-        [self addAnyWidthCompactHeightConstraints];
-    }
-    // iPhone Portrait
-    else if (newCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact && newCollection.verticalSizeClass == UIUserInterfaceSizeClassRegular) {
+    else if ([newCollection mk_matchesPhonePortrait]) {
+        
         [self removeAnyWidthCompactHeightConstraints];
         [self addCompactWidthRegularHeightConstraints];
     }
