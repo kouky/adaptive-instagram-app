@@ -64,8 +64,8 @@
     if (!self.didSetConstraints) {
         
         self.didSetConstraints = YES;
-        [self addAnyWidthAnyHeightConstraints];
-        [self addCompactWidthRegularHeightConstraints];
+        [self installGenericConstraints];
+        [self installPhonePortraitConstraints];
     }
     
     [super updateViewConstraints];
@@ -77,14 +77,14 @@
 {
     if ([newCollection mk_matchesPhoneLandscape]) {
         
-        [self removeCompactWidthRegularHeightConstraints];
-        [self addAnyWidthCompactHeightConstraints];
+        [self uninstallPhonePortraitConstraints];
+        [self installPhoneLandscapeConstraints];
         
     }
     else if ([newCollection mk_matchesPhonePortrait]) {
         
-        [self removeAnyWidthCompactHeightConstraints];
-        [self addCompactWidthRegularHeightConstraints];
+        [self uninstallPhoneLandscapeConstraints];
+        [self installPhonePortraitConstraints];
     }
     
     [self updateViewConstraints];
@@ -92,7 +92,7 @@
 
 #pragma mark Size class constraimts helpers
 
-- (void)addAnyWidthAnyHeightConstraints
+- (void)installGenericConstraints
 {
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
     
@@ -109,8 +109,7 @@
     self.genericConstraints = [constraints copy];
 }
 
-// iPhone Portrait
-- (void)addCompactWidthRegularHeightConstraints
+- (void)installPhonePortraitConstraints
 {
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
 
@@ -133,15 +132,14 @@
     self.phonePortraitConstraints = [constraints copy];
 }
 
-- (void)removeCompactWidthRegularHeightConstraints
+- (void)uninstallPhonePortraitConstraints
 {
     for (MASConstraint *constraint in self.phonePortraitConstraints) {
         [constraint uninstall];
     }
 }
 
-// iPhone Landscape
-- (void)addAnyWidthCompactHeightConstraints
+- (void)installPhoneLandscapeConstraints
 {
     NSMutableArray *constraints = [[NSMutableArray alloc] init];
     
@@ -166,7 +164,7 @@
     self.phoneLandscapeConstraints = [constraints copy];
 }
 
-- (void)removeAnyWidthCompactHeightConstraints
+- (void)uninstallPhoneLandscapeConstraints
 {
     for (MASConstraint *constraint in self.phoneLandscapeConstraints) {
         [constraint uninstall];
