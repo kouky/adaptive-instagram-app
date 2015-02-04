@@ -145,20 +145,20 @@
     
     [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.left.equalTo(self.pictureView.mas_right)];
-        [constraints addObject:make.right.equalTo(self.view)];
+        [constraints addObject:make.width.lessThanOrEqualTo(self.pictureView)];
     }];
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
         [constraints addObject:make.left.and.bottom.equalTo(self.view)];
-        [constraints addObject:make.width.lessThanOrEqualTo(self.pictureView.mas_height)];
+        [constraints addObject:make.width.equalTo(self.pictureView.mas_height)];
     }];
     
     [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.authorView.mas_bottom)];
         [constraints addObject:make.left.equalTo(self.pictureView.mas_right)];
-        [constraints addObject:make.right.equalTo(self.view)];
         [constraints addObject:make.height.equalTo(@60)];
+        [constraints addObject:make.width.lessThanOrEqualTo(self.pictureView)];
     }];
     
     self.phoneLandscapeConstraints = [constraints copy];
