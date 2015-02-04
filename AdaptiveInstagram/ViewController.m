@@ -126,7 +126,6 @@
     [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.pictureView.mas_bottom).with.offset(5)];
         [constraints addObject:make.left.and.right.equalTo(self.view)];
-        [constraints addObject:make.height.equalTo(@60)];
     }];
 
     self.phonePortraitConstraints = [constraints copy];
@@ -157,7 +156,6 @@
     [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.authorView.mas_bottom)];
         [constraints addObject:make.left.equalTo(self.pictureView.mas_right)];
-        [constraints addObject:make.height.equalTo(@60)];
         [constraints addObject:make.width.lessThanOrEqualTo(self.pictureView)];
     }];
     

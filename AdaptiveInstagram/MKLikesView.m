@@ -54,6 +54,7 @@
             make.top.equalTo(self).with.offset(3);
             make.left.equalTo(self.imageView.mas_right).with.offset(5);
             make.right.equalTo(self).with.offset(-5);
+            make.bottom.equalTo(self);
         }];
     }
     
