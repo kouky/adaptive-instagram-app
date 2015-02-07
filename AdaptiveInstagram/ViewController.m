@@ -21,7 +21,6 @@
 @property MKLikesView *likesView;
 
 // Constraints
-@property NSArray *genericConstraints;
 @property NSArray *phonePortraitConstraints;
 @property NSArray *phoneLandscapeConstraints;
 
@@ -94,19 +93,15 @@
 
 - (void)installGenericConstraints
 {
-    NSMutableArray *constraints = [[NSMutableArray alloc] init];
-    
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.left.right.and.top.equalTo(self.view)];
-        [constraints addObject:make.height.equalTo(@60)];
+        make.left.right.and.top.equalTo(self.view);
+        make.height.equalTo(@60);
     }];
 
     [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [constraints addObject:make.height.equalTo(@50)];
-        [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
+        addObject:make.height.equalTo(@50);
+        make.top.equalTo(self.headerView.mas_bottom);
     }];
-
-    self.genericConstraints = [constraints copy];
 }
 
 - (void)installPhonePortraitConstraints
