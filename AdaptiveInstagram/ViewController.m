@@ -93,9 +93,16 @@
 
 - (void)installGenericConstraints
 {
+    UIView *superView = self.view;
+    
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.and.top.equalTo(self.view);
         make.height.equalTo(@60);
+        make.left.right.and.top.equalTo(superView);
+    }];
+    
+    [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(self.pictureView.mas_width);
+        make.left.equalTo(superView);
     }];
 
     [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,8 +121,7 @@
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.authorView.mas_bottom)];
-        [constraints addObject:make.left.and.right.equalTo(self.view)];
-        [constraints addObject:make.height.equalTo(self.pictureView.mas_width)];
+        [constraints addObject:make.right.equalTo(self.view)];
     }];
     
     [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,8 +150,8 @@
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
-        [constraints addObject:make.left.and.bottom.equalTo(self.view)];
-        [constraints addObject:make.width.equalTo(self.pictureView.mas_height)];
+        [constraints addObject:make.bottom.equalTo(self.view)];
+
     }];
     
     [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
