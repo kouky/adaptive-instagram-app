@@ -151,7 +151,6 @@
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         [constraints addObject:make.top.equalTo(self.headerView.mas_bottom)];
         [constraints addObject:make.bottom.equalTo(self.view)];
-
     }];
     
     [self.likesView mas_makeConstraints:^(MASConstraintMaker *make) {
