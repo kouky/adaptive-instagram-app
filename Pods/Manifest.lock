@@ -1,13 +1,13 @@
 PODS:
   - Masonry (0.6.0)
-  - TransitionKit (2.1.1)
+  - ObjectiveSugar (1.1.0)
 
 DEPENDENCIES:
   - Masonry
-  - TransitionKit
+  - ObjectiveSugar
 
 SPEC CHECKSUMS:
   Masonry: 0bc111d6902e3a55ff8423bcbdf7155261806547
-  TransitionKit: 9ce324caba25cb0a4c9f3334302d89685595455c
+  ObjectiveSugar: f48793f5902c77cfc02a4ce46d2e8ecddcad4dc2
 
 COCOAPODS: 0.35.0
