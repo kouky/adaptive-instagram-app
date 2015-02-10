@@ -64,7 +64,7 @@
         
         self.didSetConstraints = YES;
         [self installGenericConstraints];
-        [self installPhonePortraitConstraints];
+        [self toggleConstraintsForTraitCollection:self.traitCollection];
     }
     
     [super updateViewConstraints];
@@ -74,13 +74,20 @@
 
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    if ([newCollection mk_matchesPhoneLandscape]) {
+    [self toggleConstraintsForTraitCollection:newCollection];
+}
+
+#pragma mark Private methods
+
+- (void)toggleConstraintsForTraitCollection:(UITraitCollection *)traitCollection
+{
+    if ([traitCollection mk_matchesPhoneLandscape]) {
         
         [self uninstallPhonePortraitConstraints];
         [self installPhoneLandscapeConstraints];
         
     }
-    else if ([newCollection mk_matchesPhonePortrait]) {
+    else if ([traitCollection mk_matchesPhonePortrait]) {
         
         [self uninstallPhoneLandscapeConstraints];
         [self installPhonePortraitConstraints];
@@ -88,8 +95,6 @@
     
     [self updateViewConstraints];
 }
-
-#pragma mark Size class constraimts helpers
 
 - (void)installGenericConstraints
 {
