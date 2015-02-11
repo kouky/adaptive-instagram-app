@@ -48,8 +48,8 @@
     [super viewDidLoad];
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.authorView];
-    [self.view addSubview:self.pictureView];
     [self.view addSubview:self.likesView];
+    [self.view addSubview:self.pictureView];
     [self.view setNeedsUpdateConstraints];
 }
 
@@ -57,6 +57,8 @@
 {
     return UIStatusBarStyleLightContent;
 }
+
+#pragma mark UIViewController template methods
 
 - (void)updateViewConstraints
 {
