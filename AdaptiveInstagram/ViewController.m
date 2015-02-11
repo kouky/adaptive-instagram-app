@@ -100,16 +100,14 @@
 
 - (void)installGenericConstraints
 {
-    UIView *superView = self.view;
-    
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@60);
-        make.left.right.and.top.equalTo(superView);
+        make.left.right.and.top.equalTo(self.view);
     }];
     
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.pictureView.mas_width);
-        make.left.equalTo(superView);
+        make.left.equalTo(self.view);
     }];
 
     [self.authorView mas_makeConstraints:^(MASConstraintMaker *make) {
